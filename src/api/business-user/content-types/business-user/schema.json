@@ -1,11 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "schedules",
+  "collectionName": "business_users",
   "info": {
-    "singularName": "schedule",
-    "pluralName": "schedules",
-    "displayName": "Schedule",
-    "description": ""
+    "singularName": "business-user",
+    "pluralName": "business-users",
+    "displayName": "BusinessUser"
   },
   "options": {
     "draftAndPublish": true
@@ -16,39 +15,25 @@
     }
   },
   "attributes": {
-    "startDate": {
+    "firstName": {
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "type": "datetime",
+      "type": "string",
       "required": true
     },
-    "endDate": {
+    "lastName": {
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "type": "datetime",
+      "type": "string",
       "required": true
     },
-    "description": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "text"
-    },
-    "business": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::business.business",
-      "inversedBy": "schedules"
-    },
-    "clientEmail": {
+    "email": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -57,14 +42,25 @@
       "type": "email",
       "required": true
     },
-    "clientName": {
+    "birthDate": {
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "type": "string",
-      "required": true
+      "type": "date"
+    },
+    "business": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::business.business",
+      "inversedBy": "business_users"
+    },
+    "business_role": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::business-role.business-role",
+      "inversedBy": "business_users"
     }
   }
 }

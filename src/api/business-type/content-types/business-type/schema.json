@@ -22,6 +22,12 @@
     },
     "isActive": {
       "type": "boolean"
+    },
+    "businesses": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::business.business",
+      "mappedBy": "business_type"
     }
   }
 }

@@ -1,0 +1,43 @@
+{
+  "kind": "collectionType",
+  "collectionName": "business_roles",
+  "info": {
+    "singularName": "business-role",
+    "pluralName": "business-roles",
+    "displayName": "BusinessRole"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "name": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "text",
+      "required": false
+    },
+    "business_users": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::business-user.business-user",
+      "mappedBy": "business_role"
+    }
+  }
+}
