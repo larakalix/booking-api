@@ -16,7 +16,7 @@ module.exports = {
    * This gives you an opportunity to set up your data model,
    * run jobs, or perform some special logic.
    */
-  bootstrap({ strapi }) {
+  async bootstrap({ strapi }) {
     const { Server } = require("socket.io");
 
     const io = new Server(strapi.server.httpServer, {
@@ -29,7 +29,7 @@ module.exports = {
       transports: ["polling"],
     });
 
-    io.on("connection", (socket) => {
+    io.on("connection", async (socket) => {
       socket.on("book", ({ schedule }) => {
         const transactionInfo = {
           socketId: socket.id,
