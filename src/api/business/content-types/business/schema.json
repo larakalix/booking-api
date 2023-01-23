@@ -82,6 +82,12 @@
       },
       "type": "uid",
       "targetField": "name"
+    },
+    "configuration": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::configuration.configuration",
+      "inversedBy": "business"
     }
   }
 }
